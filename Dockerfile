@@ -2,6 +2,10 @@ FROM openjdk:8-jre-alpine
 
 WORKDIR /swagger-petstore
 
+LABEL PCIScope="false"
+LABEL NetworkLocation="Internal"
+LABEL ContainerType="API"
+
 COPY target/lib/jetty-runner.jar /swagger-petstore/jetty-runner.jar
 COPY target/*.war /swagger-petstore/server.war
 COPY src/main/resources/openapi.yaml /swagger-petstore/openapi.yaml
